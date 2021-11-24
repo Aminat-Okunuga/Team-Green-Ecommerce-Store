@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\categoryController;
+use App\Http\Controllers\productController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//products route
+Route::resource('products', productController::class)->middleware('auth');
+//categories route
+Route::resource('products', categoryController::class)->middleware('auth');
