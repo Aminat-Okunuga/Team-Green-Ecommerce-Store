@@ -3,7 +3,6 @@
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\productController;
 use Illuminate\Support\Facades\Route;
-use Auth;
 
 /*
 |--------------------------------------------------------------------------
