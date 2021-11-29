@@ -53,7 +53,7 @@
         <li class="relative px-6 py-3">
           <a
             class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-            href="{{ url('users') }}"
+            href="{{ url('customers') }}"
           >
             <svg
               class="w-5 h-5"
@@ -122,19 +122,19 @@
                 <li
                   class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 >
-                  <a class="w-full" href="">Category</a>
+                  <a class="w-full" href="{{ url('category') }}">Category</a>
                 </li>
                 <li
                   class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 >
-                  <a class="w-full" href="">
+                  <a class="w-full" href="{{ url('subcategory') }}">
                     Sub-category
                   </a>
                 </li>
                 <li
                   class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 >
-                  <a class="w-full" href="">
+                  <a class="w-full" href="{{ url('products') }}">
                    Products
                   </a>
                 </li>

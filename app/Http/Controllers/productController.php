@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class productController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class productController extends Controller
      */
     public function index()
     {
-        $data['products'] = Product::where('status',1)->get();
+        $data['products'] = Product::where('status', 1)->get();
 
         return response()->json($data);
     }

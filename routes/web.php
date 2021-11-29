@@ -37,6 +37,9 @@ Route::resource('customers', CustomerController::class)->middleware(['auth']);
 Route::resource('products', productController::class)->middleware('auth');
 
 //categories route
-Route::resource('category', categoryController::class)->middleware('auth');
+Route::resource('category', CategoryController::class)->middleware('auth');
+
+// Subcategory route
+Route::resource('Subcategory', SubcategoryController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';

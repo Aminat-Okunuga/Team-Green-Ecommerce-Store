@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data['cateories'] = Category::all();
-
-        return response()->json($data);
+        //
     }
 
     /**
@@ -37,15 +34,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name'=>'required'
-        ]);
-
-        Category::create([
-            'name'=>$request->name
-        ]);
-
-        return back()->with(['message'=>'category uploaded successfuly','type'=>'success']);
+        //
     }
 
     /**
@@ -56,9 +45,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::findOrFail($id);
-
-        return response()->json($category);
+        //
     }
 
     /**
@@ -81,15 +68,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name'=>'require'
-        ]);
-
-        Category::where('id',$id)->update([
-            'name'=>$request->name
-        ]);
-
-        return back()->with(['message'=>'category updated succesfuly','type'=>'success']);
+        //
     }
 
     /**
@@ -100,8 +79,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::findOrFail($id)->delete();
-
-        return back()->with(['message'=>'category deleted successfuly','type'=>'success']);
+        //
     }
 }
