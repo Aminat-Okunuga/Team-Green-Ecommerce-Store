@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\productController;
 use Illuminate\Support\Facades\Route;
@@ -26,8 +27,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+//User route
+Route::resource('users', UserController::class)->middleware(['auth']);
+
+//Customer route
+Route::resource('customers', CustomerController::class)->middleware(['auth']);
+
 //products route
 Route::resource('products', productController::class)->middleware('auth');
+
 //categories route
-Route::resource('products', categoryController::class)->middleware('auth');
+Route::resource('category', categoryController::class)->middleware('auth');
+
+require __DIR__.'/auth.php';

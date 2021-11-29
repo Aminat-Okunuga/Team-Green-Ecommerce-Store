@@ -12,7 +12,7 @@
     />
     <link rel="stylesheet" href="{{ asset('admin/assets/css/tailwind.output.css') }}" />
     <script
-      src="{{ asset('admin/alpinejs/alpine%40v2.x.x/dist/alpine.min.js') }}"
+      src="{{ asset('admin/assets/js/alpinejs/alpinev2/dist/alpine.min.js') }}"
       defer
     ></script>
     <script src="{{ asset('admin/assets/js/init-alpine.js') }}"></script>

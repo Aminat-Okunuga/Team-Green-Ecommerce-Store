@@ -1,36 +1,34 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Windmill Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/tailwind.output.css') }}" />
+    <script src="{{ asset('admin/assets/js/alpinejs/alpinev2/dist/alpine.min.js') }}" defer ></script>
+    <script src="{{ asset('admin/assets/js/init-alpine.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('admin/assets/js/ajax/libs/Chart.js/2.9.3/Chart.min.css') }}" />
+    <script src="{{ asset('admin/assets/js/ajax/libs/Chart.js/2.9.3/Chart.min.js') }}" defer></script>
+    <script src="{{ asset('admin/assets/js/charts-lines.js') }}" defer></script>
+    <script src="{{ asset('admin/assets/js/charts-pie.js') }}" defer></script>
+  </head>
+  <body>
+    <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+      
+        @include('layouts.partials.sidebar')
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+      <div class="flex flex-col flex-1 w-full">
+        <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
+          {{ $header }}
+        </header>
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-    </body>
+        {{-- Main Content --}}
+        <main class="h-full overflow-y-auto">
+          {{ $slot }}
+        </main>
+      </div>
+    </div>
+  </body>
 </html>
