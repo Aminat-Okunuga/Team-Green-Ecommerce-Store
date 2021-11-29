@@ -1,8 +1,12 @@
 <?php
 
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\categoryController;
-use App\Http\Controllers\productController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubcategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ShippingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,19 +31,27 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-//User route
+// User route
 Route::resource('users', UserController::class)->middleware(['auth']);
 
-//Customer route
+// Customer route
 Route::resource('customers', CustomerController::class)->middleware(['auth']);
 
-//products route
-Route::resource('products', productController::class)->middleware('auth');
-
-//categories route
+// categories route
 Route::resource('category', CategoryController::class)->middleware('auth');
 
 // Subcategory route
-Route::resource('Subcategory', SubcategoryController::class)->middleware('auth');
+Route::resource('subcategory', SubcategoryController::class)->middleware('auth');
+
+// products route
+Route::resource('products', ProductController::class)->middleware('auth');
+
+// Orders route
+Route::resource('orders', OrderController::class)->middleware('auth');
+
+// Shipping route
+Route::resource('shipping', ShippingController::class)->middleware('auth');
+
+
 
 require __DIR__.'/auth.php';
